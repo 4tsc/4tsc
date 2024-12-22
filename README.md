@@ -1,4 +1,4 @@
-### Hello there, I am Thomas, nice to meet you 🤠
+### Hello there, I am Tomás.
 ### I am a ever-learning software engineer aspiring to new heights
 
 - 🔭 I’m currently working on a personal project
