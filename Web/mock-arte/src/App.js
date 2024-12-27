@@ -6,18 +6,23 @@ import "./App.css";
 
 const App = () => {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleAddToCart = (product) => {
     setCart([...cart, product]);
   };
 
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
     <div className="app-container">
-      <Header cartCount={cart.length} />
+      <Header cartCount={cart.length} onCartIconClick={toggleCart} />
       <main>
         <ProductList onAddToCart={handleAddToCart} />
       </main>
-      <Cart cartItems={cart} />
+      {isCartOpen && <Cart cartItems={cart} onCloseCart={toggleCart} />}
     </div>
   );
 };
