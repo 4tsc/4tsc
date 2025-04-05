@@ -14,8 +14,8 @@ const fs = require('fs');
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Puedes usar otro servicio SMTP
   auth: {
-    user: 'magicarduct@gmail.com',
-    pass: 'afyoddcenvpjrdbq',   
+    user: '#',
+    pass: '#',   
   },
 });
 
@@ -56,14 +56,14 @@ const allowedOrigins = [
   'http://magicarduct.online',
   'http://localhost:3000',
   'http://localhost:8081', // Tu máquina local
-  'http://186.64.122.218:3000',  // IP del host remoto
-  'http://186.64.122.218', // Otro dominio permitido
+  'http://#:3000',  // IP del host remoto
+  'http://#', // Otro dominio permitido
   'https://localhost:3001',
   'https://magicarduct.online',
   'https://localhost:3000',
   'https://localhost:8081', // Tu máquina local
-  'https://186.64.122.218:3000',  // IP del host remoto
-  'https://186.64.122.218', // Otro dominio permitido
+  'https://#:3000',  // IP del host remoto
+  'https://#', // Otro dominio permitido
 ];
 
 app.use(cors({
@@ -116,7 +116,7 @@ db.connect((err) => {
 
 // Middleware para verificar que el usuario estï¿½ autenticado
 const isAuthenticated = (req, res, next) => {
-  console.log('TOY AUTENTICAO WEBON!:', req.session.userId);
+  console.log('AUTENTICADO!:', req.session.userId);
   if (req.session.userId) {
     next();
   } else {
@@ -165,7 +165,6 @@ app.post('/logout', (req, res) => {
 app.post('/update-deck-image', (req, res) => {
     const { deckId, imageUuid } = req.body; // Recibir los datos del cliente
 
-    // Validar que se reciban todos los par�metros requeridos
     if (!deckId || !imageUuid) {
         return res.status(400).json({ error: 'Se requieren deckId e imageUuid.' });
     }
